@@ -2,16 +2,15 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class C01_FaceBookRegisterPage {
+public class C02_FluentFaceBookRegisterPage {
     private WebDriver ldriver; //local Driver
 
-    public C01_FaceBookRegisterPage(WebDriver driver) {
+    public C02_FluentFaceBookRegisterPage(WebDriver driver) {
         ldriver = driver;
-
     }
+
     By cookies1 = By.xpath("//button[@title='Alle Cookies erlauben']");
     By cookies2 = By.xpath("(//button[starts-with(@id,'u_0_')])[3]");
 
@@ -33,42 +32,51 @@ public class C01_FaceBookRegisterPage {
     By customRadio = By.xpath("//input[@name='sex'][@value='-1']");
     By signUpButton = By.name("websubmit");
 
-    public void clickRegister() {
-        ldriver.findElement(kayitOlButton).click();}
+    public C02_FluentFaceBookRegisterPage clickRegister() {
+        ldriver.findElement(kayitOlButton).click();
+        return this;
+    }
 
-    public void enterFirstName(String firstName) {
-        ldriver.findElement(isim).sendKeys(firstName);}
+    public C02_FluentFaceBookRegisterPage enterFirstName(String firstName) {
+        ldriver.findElement(isim).sendKeys(firstName);
+        return this;
+    }
 
-    public void enterLastName(String lastName) {
-        ldriver.findElement(soyAd).sendKeys(lastName);}
+    public C02_FluentFaceBookRegisterPage enterLastName(String lastName) {
+        ldriver.findElement(soyAd).sendKeys(lastName);
+        return this;
+    }
 
-    public void enterEmail(String email) {
+    public C02_FluentFaceBookRegisterPage enterEmail(String email) {
         ldriver.findElement(this.email).sendKeys(email);
         //this kullanmamizin sebebi isim cakismasidir, this keywordu kullanarak bunu handle ettik
+        return this;
     }
 
-    public void enterPassword(String password){
+    public C02_FluentFaceBookRegisterPage enterPassword(String password){
         ldriver.findElement(this.password).sendKeys(password);
+        return this;
     }
 
-    public void selectBirthDay(String day){
+    public C02_FluentFaceBookRegisterPage selectBirthDay(String day){
         Select select = new Select(ldriver.findElement(birthdayDay));
         select.selectByVisibleText(day);
-
+        return this;
     }
 
-    public void selectBirthMonth(String month){
+    public C02_FluentFaceBookRegisterPage selectBirthMonth(String month){
         Select select = new Select(ldriver.findElement(birthdayMonth));
         select.selectByVisibleText(month);
+        return this;
     }
 
-    public void selectBirthYear(String year){
+    public C02_FluentFaceBookRegisterPage selectBirthYear(String year){
         Select select = new Select(ldriver.findElement(birthdayYear));
         select.selectByVisibleText(year);
+        return this;
     }
 
-    public void pickGender(String gender){
-
+    public C02_FluentFaceBookRegisterPage pickGender(String gender){
         switch (gender){
             case "Male":
                 ldriver.findElement(maleRadio).click();
@@ -80,7 +88,7 @@ public class C01_FaceBookRegisterPage {
                 ldriver.findElement(customRadio).click();
                 break;
         }
-
+        return this;
     }
 
     public void clickSignUpButton(){
