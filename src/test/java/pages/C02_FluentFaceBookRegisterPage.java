@@ -11,8 +11,9 @@ public class C02_FluentFaceBookRegisterPage {
         ldriver = driver;
     }
 
-    By cookies1 = By.xpath("//button[@title='Alle Cookies erlauben']");
-    By cookies2 = By.xpath("(//button[starts-with(@id,'u_0_')])[3]");
+  //  By cookies1 = By.xpath("//button[@title='Tüm çerezlere izin ver']");(Tur)
+  //  By cookies1 = By.xpath(“//button[@title=‘Allow all cookies’]“);(eng)
+   // By cookies2 = By.xpath("(//button[starts-with(@id,'u_0_')])[3]");
 
         //  public void handleCookies(){
         //      ldriver.findElement(cookies1).click();
